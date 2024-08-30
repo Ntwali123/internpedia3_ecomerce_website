@@ -1,24 +1,19 @@
 import React from "react";
-import headphones from "../assets/headphones.png"
-import ProductCard from "../components/ProductCard";
 
-const product = [
-    { id:1, name:'Product 1', price:29.99, image: headphones },
-    { id:2, name:'Product 2', price:39.99, image: headphones },
-    { id:3, name:'Product 3', price:19.99, image: headphones },
-];
-
-const ShopPage = () => {
+const ProductCard = ({ product }) => {
     return (
-        <div className="container mx-auto mt-8 ">
-            <h1 className="text-3xl font-bold mb-8 text-gray-200">Shop</h1>
-            <div className="grid grid-cols-3 gap-8">
-                {product.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                ))}
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4">
+            <img
+                src={product.image}
+                alt={product.name}
+                className="w-32 h-32 mx-auto object-contain"
+            />
+            <div className="p-4 text-center">
+                <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{product.name}</h2>
+                <p className="mt-2 text-gray-600 dark:text-gray-400">${product.price.toFixed(2)}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ShopPage;
+export default ProductCard;

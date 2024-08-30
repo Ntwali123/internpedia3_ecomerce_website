@@ -1,5 +1,13 @@
 import React from "react";
+import headphones from "../assets/headphones.png"
+import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
+
+const product = [
+  { id:1, name:'Product 1', price:29.99, image: headphones },
+  { id:2, name:'Product 2', price:39.99, image: headphones },
+  { id:3, name:'Product 3', price:19.99, image: headphones },
+];
 
 function HomePage() {
   return (
@@ -25,60 +33,14 @@ function HomePage() {
           <h2 className="text-3xl font-bold dark:text-gray-200">
             Featured Products
           </h2>
-          <div className="grid grid-row-3 md:grid-cols-3 gap-8 mt-6">
-            {/* Add ProductCards here */}
-            <div className="border p-4 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700 shadow-md">
-              <img
-                src="path-to-image"
-                alt="Product Name"
-                className="w-full h-48 object-cover mb-4 rounded"
-              />
-              <h3 className="text-xl font-bold dark:text-gray-200">
-                Product Name
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">$29.99</p>
-              <Link
-                to="/product/1"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200"
-              >
-                View Details
-              </Link>
+          <div className="container mx-auto mt-8 ">
+            <h1 className="text-3xl font-bold mb-8 text-gray-200">Shop</h1>
+            <div className="grid grid-cols-3 gap-8">
+                {product.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
             </div>
-            <div className="border p-4 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700 shadow-md">
-              <img
-                src="path-to-image"
-                alt="Product Name"
-                className="w-full h-48 object-cover mb-4 rounded"
-              />
-              <h3 className="text-xl font-bold dark:text-gray-200">
-                Product Name
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">$29.99</p>
-              <Link
-                to="/product/1"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200"
-              >
-                View Details
-              </Link>
             </div>
-            <div className="border p-4 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700 shadow-md">
-              <img
-                src="path-to-image"
-                alt="Product Name"
-                className="w-full h-48 object-cover mb-4 rounded"
-              />
-              <h3 className="text-xl font-bold dark:text-gray-200">
-                Product Name
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">$29.99</p>
-              <Link
-                to="/product/1"
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200"
-              >
-                View Details
-              </Link>
-            </div>
-          </div>
         </section>
 
         {/* Testimonials in Row Columns */}
